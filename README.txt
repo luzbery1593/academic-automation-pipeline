@@ -1,0 +1,41 @@
+# Academic Paper Automation Pipeline (PowerShell)
+
+This repository features a professional end-to-end automation pipeline built with **PowerShell**. It automates the tedious process of writing scientific articles, transforming raw PDF data and API metadata into a structured, high-impact academic manuscript in Microsoft Word format.
+
+This project is a practical demonstration of **DevOps principles** applied to content engineering: modularity, fail-fast error handling, and tool integration.
+
+## The Core Pipeline (Phase by Phase)
+
+The system follows a strictly modular architecture where each script performs a specific transformation:
+
+1.  **Metadata Extraction (1_Extraer_Dois.ps1):** Scans the directory for PDF files and uses advanced **Regex** to extract Digital Object Identifiers (DOIs).
+2.  **API Integration (2_Obtener_Citas.ps1):** Connects to the **CrossRef API** to automatically download bibliographic citations in APA 7th Edition style.
+3.  **Data Curation (3_Finalizar_Bibliografia.ps1):** Performs automated cleanup, sorting, and deduplication of the references.
+4.  **Scaffold Generation (4_Crear_Estructura.ps1):** Programmatically creates the folder architecture and the Markdown files for each article section (Abstract, Intro, etc.).
+5.  **Context Mapping (5_Generar_Mapa_Citas.ps1):** Indexes references into a `REF_N` format, optimized for Large Language Model (LLM) context processing.
+6.  **Prompt Engineering (6_Unificador_Maestro.ps1):** Compiles all gathered data into a high-level "PhD-level" prompt to generate scientific content.
+7.  **Content Injection (7_Inyector_Final.ps1):** Uses complex Regex patterns to distribute AI-generated content into their respective manuscript sections.
+8.  **Critical Recovery (8_Rescate_Metodologia.ps1):** A specialized script to ensure the "Methodology" section is correctly localized and refined.
+9.  **Deployment & Conversion (11_FINALIZADOR_TOTAL.ps1):** Uses **Pandoc** and .NET **StringBuilder** to merge all sections and export the final professional `.docx` document.
+
+## Technical Stack & Skills
+
+* **Automation:** PowerShell (Core/Desktop).
+* **Data Processing:** Advanced Regular Expressions (Regex) for text parsing.
+* **Performance:** Implementation of `.NET StringBuilder` for efficient memory management during large file unifications.
+* **External Integration:** REST API consumption (Invoke-WebRequest/Invoke-RestMethod).
+* **Document Engineering:** Pandoc for cross-format document conversion.
+* **DevOps Mindset:** Fail-fast checks (dependency verification), rate-limiting for APIs, and modular/reusable code.
+
+## Prerequisites
+
+To ensure the pipeline runs successfully, the following must be in your system's PATH:
+1.  **PowerShell 5.1+**
+2.  **Pandoc** (for Word document generation).
+3.  **pdftotext** (from XpdfReader tools, for PDF parsing).
+
+## Engineering Value
+This is not just a collection of scripts; it's a **Content Pipeline**. It solves the problem of manual data entry and formatting, allowing researchers to focus on analysis while the "machinery" handles the structure and metadata integrity.
+
+---
+**Developed by [Tu Nombre o Usuario de GitHub]**
